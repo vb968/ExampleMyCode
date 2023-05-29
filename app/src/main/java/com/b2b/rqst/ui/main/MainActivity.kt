@@ -1,5 +1,6 @@
 package com.b2b.rqst.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.b2b.rqst.R
 import com.b2b.rqst.databinding.ActivityMainBinding
+import com.b2b.rqst.ui.auth.LoginActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,5 +27,9 @@ class MainActivity : AppCompatActivity() {
         /*val appBarConfiguration = AppBarConfiguration(setOf(R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
         setupActionBarWithNavController(navController, appBarConfiguration)*/
         navView.setupWithNavController(navController)
+
+
+        val intent = (Intent(this, LoginActivity()::class.java))
+        startActivity(intent)
     }
 }
