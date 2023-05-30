@@ -1,143 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/container"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/logotype_i"
-        android:src="@drawable/logotype_i"
-        android:layout_marginBottom="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/username"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/username"
-        android:text="@string/username"
-        android:layout_marginBottom="20dp"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/bg_entry_field_username"
-        app:layout_constraintBottom_toTopOf="@+id/bg_entry_field_username"
-        />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bg_entry_field_username"
-        android:src="@drawable/bg_entry_field"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/access_code"
-        />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ic_profile"
-        android:src="@drawable/ic_profile"
-        android:layout_marginStart="15dp"
-        app:layout_constraintStart_toStartOf="@+id/bg_entry_field_username"
-        app:layout_constraintTop_toTopOf="@+id/bg_entry_field_username"
-        app:layout_constraintBottom_toBottomOf="@+id/bg_entry_field_username"
-        />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/edit_username"
-        android:hint="@string/enter_your_username"
-        android:textSize="12sp"
-        android:layout_marginStart="15dp"
-        app:layout_constraintStart_toEndOf="@+id/ic_profile"
-        app:layout_constraintTop_toTopOf="@+id/bg_entry_field_username"
-        app:layout_constraintBottom_toBottomOf="@+id/bg_entry_field_username"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/access_code"
-        android:text="@string/access_code"
-        android:textSize="16sp"
-        android:layout_marginBottom="20dp"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/bg_entry_field_code"
-        app:layout_constraintBottom_toTopOf="@+id/bg_entry_field_code"
-        />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bg_entry_field_code"
-        android:src="@drawable/bg_entry_field"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/captcha"
-        />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ic_lock"
-        android:src="@drawable/ic_lock"
-        android:layout_marginStart="15dp"
-        app:layout_constraintStart_toStartOf="@+id/bg_entry_field_code"
-        app:layout_constraintTop_toTopOf="@+id/bg_entry_field_code"
-        app:layout_constraintBottom_toBottomOf="@+id/bg_entry_field_code"
-        />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/edit_code"
-        android:hint="@string/enter_your_access_code"
-        android:textSize="12sp"
-        android:layout_marginStart="15dp"
-        app:layout_constraintStart_toEndOf="@+id/ic_lock"
-        app:layout_constraintTop_toTopOf="@+id/bg_entry_field_code"
-        app:layout_constraintBottom_toBottomOf="@+id/bg_entry_field_code"
-        />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/captcha"
-        android:src="@drawable/captcha"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/button_login"
-        />
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:id="@+id/check_mark"
-        android:visibility="gone"
-        android:src="@drawable/check_mark"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="@+id/captcha"
-        app:layout_constraintTop_toTopOf="@+id/captcha"
-        app:layout_constraintBottom_toBottomOf="@+id/captcha"
-        />
-    <View
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/checkbox_switch"
-        android:background="@android:color/transparent"
-        android:layout_marginStart="15dp"
-        app:layout_constraintStart_toStartOf="@+id/captcha"
-        app:layout_constraintTop_toTopOf="@+id/captcha"
-        app:layout_constraintBottom_toBottomOf="@+id/captcha"
-        />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button_login"
-        android:src="@drawable/button_login"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <ImageView
+            android:id="@+id/logotype_i"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/logotype_i"
+            app:layout_constraintBottom_toTopOf="@+id/username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/username"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/bg_entry_field_username"
+            app:layout_constraintStart_toStartOf="@+id/bg_entry_field_username" />
+
+        <ImageView
+            android:id="@+id/bg_entry_field_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/bg_entry_field"
+            app:layout_constraintBottom_toTopOf="@+id/access_code"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/ic_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/ic_profile"
+            app:layout_constraintBottom_toBottomOf="@+id/bg_entry_field_username"
+            app:layout_constraintStart_toStartOf="@+id/bg_entry_field_username"
+            app:layout_constraintTop_toTopOf="@+id/bg_entry_field_username" />
+
+        <EditText
+            android:id="@+id/edit_username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:hint="@string/enter_your_username"
+            android:textSize="16sp"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="@+id/bg_entry_field_username"
+            app:layout_constraintStart_toEndOf="@+id/ic_profile"
+            app:layout_constraintEnd_toEndOf="@+id/bg_entry_field_username"
+            app:layout_constraintTop_toTopOf="@+id/bg_entry_field_username" />
+
+        <TextView
+            android:id="@+id/access_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/access_code"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/bg_entry_field_code"
+            app:layout_constraintStart_toStartOf="@+id/bg_entry_field_code" />
+
+        <ImageView
+            android:id="@+id/bg_entry_field_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/bg_entry_field"
+            app:layout_constraintBottom_toTopOf="@+id/captcha"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/ic_lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/ic_lock"
+            app:layout_constraintBottom_toBottomOf="@+id/bg_entry_field_code"
+            app:layout_constraintStart_toStartOf="@+id/bg_entry_field_code"
+            app:layout_constraintTop_toTopOf="@+id/bg_entry_field_code" />
+
+        <EditText
+            android:id="@+id/edit_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:hint="@string/enter_your_access_code"
+            android:textSize="16sp"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="@+id/bg_entry_field_code"
+            app:layout_constraintStart_toEndOf="@+id/ic_lock"
+            app:layout_constraintEnd_toEndOf="@+id/bg_entry_field_code"
+            app:layout_constraintTop_toTopOf="@+id/bg_entry_field_code" />
+
+        <ImageView
+            android:id="@+id/captcha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/captcha"
+            app:layout_constraintBottom_toTopOf="@+id/button_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/check_mark"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/check_mark"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/captcha"
+            app:layout_constraintStart_toStartOf="@+id/captcha"
+            app:layout_constraintTop_toTopOf="@+id/captcha" />
+
+        <View
+            android:id="@+id/checkbox_switch"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="15dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/captcha"
+            app:layout_constraintStart_toStartOf="@+id/captcha"
+            app:layout_constraintTop_toTopOf="@+id/captcha" />
+
+        <ImageView
+            android:id="@+id/button_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/button_login"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
