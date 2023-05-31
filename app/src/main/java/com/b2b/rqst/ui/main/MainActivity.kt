@@ -29,7 +29,9 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
-        val intent = (Intent(this, LoginActivity()::class.java))
-        startActivity(intent)
+       /* val intent = (Intent(this, LoginActivity()::class.java))
+        startActivity(intent)*/
+
+        navView.itemIconTintList = null
     }
 }

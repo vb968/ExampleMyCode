@@ -1,10 +1,22 @@
 <resources>
     <string name="app_name">B2B Request</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="username">Username</string>
     <string name="access_code">Access code</string>
     <string name="enter_your_access_code">Enter your access code</string>
     <string name="enter_your_username">Enter your username</string>
+
+    <string name="requests">Requests</string>
+    <string name="add_request">Add request</string>
+    <string name="support">Support</string>
+    <string name="profile">Profile</string>
+
+    <string name="all">All</string>
+    <string name="active">Active</string>
+    <string name="listed">Listed</string>
+    <string name="closed">Closed</string>
+    <string name="issue">Issue</string>
+    <string name="deleted">Deleted</string>
+    <string name="tap_to_search">Tap to search</string>
+
+
 </resources>

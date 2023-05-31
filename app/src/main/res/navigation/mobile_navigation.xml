@@ -3,23 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_requests">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.b2b.rqst.ui.main.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_profile"
+        android:name="com.b2b.rqst.ui.main.addrequest.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.b2b.rqst.ui.main.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_requests"
+        android:name="com.b2b.rqst.ui.main.requests.RequestsFragment"
+        android:label="@string/requests"
+        tools:layout="@layout/fragment_requests" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.b2b.rqst.ui.main.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_support"
+        android:name="com.b2b.rqst.ui.main.support.SupportFragment"
+        android:label="@string/support"
+        tools:layout="@layout/fragment_support" />
+    <fragment
+        android:id="@+id/navigation_add_request"
+        android:name="com.b2b.rqst.ui.main.addrequest.AddRequestFragment"
+        android:label="@string/add_request"
+        tools:layout="@layout/fragment_add_request" />
+
 </navigation>
