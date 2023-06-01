@@ -17,7 +17,7 @@ import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-class RequestAdapter(private var ticketList: List<Request>, private val onClick: (Request) -> Unit) : RecyclerView.Adapter<RequestAdapter.ViewHolder>() {
+class FormAdapter(private var ticketList: List<Request>, private val onClick: (Request) -> Unit) : RecyclerView.Adapter<FormAdapter.ViewHolder>() {
     constructor(onClick: (Request) -> Unit) : this(emptyList(), onClick)
 
     class ViewHolder(view: View, val onClick: (Request) -> Unit) : RecyclerView.ViewHolder(view) {
