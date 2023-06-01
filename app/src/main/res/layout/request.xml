@@ -22,23 +22,36 @@
             android:layout_marginStart="15dp"
             android:textAlignment="center"
             android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/request_number"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/request_number"
+            android:id="@+id/text_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="№F15306"
+            android:text="№."
             android:layout_marginStart="15dp"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/price"
-            app:layout_constraintRight_toLeftOf="@+id/status"
             app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/request_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="F15306"
+            android:layout_marginStart="5dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/text_number"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
             android:id="@+id/status"
@@ -80,18 +93,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/chevron_up"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rows_form"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_request">
 
@@ -101,7 +123,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/row_form_1"
             />
@@ -111,7 +132,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/row_form_0"
             app:layout_constraintBottom_toTopOf="@+id/row_form_2"
             />
@@ -120,9 +140,7 @@
             layout="@layout/row_form"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:alpha="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/row_form_1"
             app:layout_constraintBottom_toTopOf="@+id/row_form_3"
             />
@@ -131,12 +149,20 @@
             layout="@layout/row_form"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:alpha="0.2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/row_form_2"
             />
+        <ImageView
+            android:id="@+id/transparent_screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/transparent_screen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

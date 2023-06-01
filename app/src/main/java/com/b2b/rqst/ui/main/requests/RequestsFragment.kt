@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.b2b.rqst.databinding.FragmentRequestsBinding
 import com.b2b.rqst.model.Request
+import com.b2b.rqst.model.Request.Companion.getTestRequests
 
 class RequestsFragment : Fragment() {
 
@@ -27,7 +28,7 @@ class RequestsFragment : Fragment() {
         _binding = FragmentRequestsBinding.inflate(inflater, container, false)
 
         val recyclerView: RecyclerView = binding.recyclerView
-        val requestAdapter = RequestAdapter { request -> adapterOnClick(request) }
+        val requestAdapter = RequestAdapter(getTestRequests()) { request -> adapterOnClick(request) }
         recyclerView.adapter = requestAdapter
 
         /*val textView: TextView = binding.textDashboard
