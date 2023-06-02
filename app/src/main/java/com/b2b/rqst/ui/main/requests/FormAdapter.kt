@@ -1,43 +1,25 @@
 package com.b2b.rqst.ui.main.requests
 
 import android.content.Context
-import android.graphics.BitmapFactory
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.b2b.rqst.R
-import com.b2b.rqst.model.Request
-import java.text.SimpleDateFormat
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
-import java.util.*
+import com.b2b.rqst.model.Form
 
-class FormAdapter(private var ticketList: List<Request>, private val onClick: (Request) -> Unit) : RecyclerView.Adapter<FormAdapter.ViewHolder>() {
-    constructor(onClick: (Request) -> Unit) : this(emptyList(), onClick)
-
-    class ViewHolder(view: View, val onClick: (Request) -> Unit) : RecyclerView.ViewHolder(view) {
-        private var currentTicket: Request? = null
-        val price: TextView = view.findViewById(R.id.price)
-        val requestNumber: TextView = view.findViewById(R.id.request_number)
-        val status: TextView = view.findViewById(R.id.status)
-        val chevron: ImageView = view.findViewById(R.id.chevron)
-        val chevronDown: ImageView = view.findViewById(R.id.chevron_down)
-        val chevronUp: ImageView = view.findViewById(R.id.chevron_up)
-        val rows_form: ConstraintLayout = view.findViewById(R.id.rows_form)
-        val row_form_0: ConstraintLayout = view.findViewById(R.id.row_form_0)
-        val row_form_1: ConstraintLayout = view.findViewById(R.id.row_form_1)
-        val row_form_2: ConstraintLayout = view.findViewById(R.id.row_form_2)
-        val row_form_3: ConstraintLayout = view.findViewById(R.id.row_form_3)
-        val recycler_form: RecyclerView = view.findViewById(R.id.recycler_form)
+class FormAdapter(private var formList: List<Form>) : RecyclerView.Adapter<FormAdapter.ViewHolder>() {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        private var currentTicket: Form? = null
+        val icon: ImageView = view.findViewById(R.id.image_icon)
+        val label: TextView = view.findViewById(R.id.text_option)
+        val value: TextView = view.findViewById(R.id.text_value)
         val context: Context
         init {
             context = view.context
-            chevron.setOnClickListener {
+           /* chevron.setOnClickListener {
                 if (chevronDown.visibility == View.VISIBLE){
                     clickDown()
                 }else{
@@ -47,34 +29,21 @@ class FormAdapter(private var ticketList: List<Request>, private val onClick: (R
                 currentTicket?.let {
                     onClick(it)
                 }
-            }
+            }*/
         }
-        fun bind(ticket: Request) {
+        fun bind(ticket: Form) {
             currentTicket = ticket
-        }
-        private fun clickDown(){
-            chevronDown.visibility = View.GONE
-            chevronUp.visibility = View.VISIBLE
-            rows_form.visibility = View.GONE
-            recycler_form.visibility = View.VISIBLE
-
-        }
-        private fun clickUp(){
-            chevronDown.visibility = View.VISIBLE
-            chevronUp.visibility = View.GONE
-            rows_form.visibility = View.VISIBLE
-            recycler_form.visibility = View.GONE
         }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.request, parent, false)
-        return ViewHolder(view, onClick)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_form, parent, false)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        if (ticketList.isEmpty()){return}
+        if (formList.isEmpty()){return}
        /* holder.numberTicket.text = holder.context.getString(R.string.grill_, ticketList[position].number.toString())
         holder.titleText.text = ticketList[position].group?.number
         holder.prizeMoney.text = ticketList[position].reward.toString()
@@ -103,10 +72,10 @@ class FormAdapter(private var ticketList: List<Request>, private val onClick: (R
     }
 
     override fun getItemCount(): Int {
-        return ticketList.size
+        return formList.size
     }
-    fun updateTickets(newTicketList: List<Request>){
-        ticketList = newTicketList
+    fun updateTickets(newTicketList: List<Form>){
+        formList = newTicketList
         notifyDataSetChanged()
     }
     fun updateTickets(){

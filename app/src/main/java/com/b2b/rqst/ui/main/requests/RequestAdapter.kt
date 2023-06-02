@@ -1,8 +1,6 @@
 package com.b2b.rqst.ui.main.requests
 
 import android.content.Context
-import android.graphics.BitmapFactory
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +10,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.b2b.rqst.R
 import com.b2b.rqst.model.Request
-import java.text.SimpleDateFormat
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
-class RequestAdapter(private var ticketList: List<Request>, private val onClick: (Request) -> Unit) : RecyclerView.Adapter<RequestAdapter.ViewHolder>() {
+class RequestAdapter(private var requestList: List<Request>, private val onClick: (Request) -> Unit) : RecyclerView.Adapter<RequestAdapter.ViewHolder>() {
     constructor(onClick: (Request) -> Unit) : this(emptyList(), onClick)
 
     class ViewHolder(view: View, val onClick: (Request) -> Unit) : RecyclerView.ViewHolder(view) {
@@ -25,7 +20,7 @@ class RequestAdapter(private var ticketList: List<Request>, private val onClick:
         val price: TextView = view.findViewById(R.id.price)
         val requestNumber: TextView = view.findViewById(R.id.request_number)
         val status: TextView = view.findViewById(R.id.status)
-        val chevron: ImageView = view.findViewById(R.id.chevron)
+        val chevron: ConstraintLayout = view.findViewById(R.id.chevron)
         val chevronDown: ImageView = view.findViewById(R.id.chevron_down)
         val chevronUp: ImageView = view.findViewById(R.id.chevron_up)
         val rows_form: ConstraintLayout = view.findViewById(R.id.rows_form)
@@ -33,7 +28,8 @@ class RequestAdapter(private var ticketList: List<Request>, private val onClick:
         val row_form_1: ConstraintLayout = view.findViewById(R.id.row_form_1)
         val row_form_2: ConstraintLayout = view.findViewById(R.id.row_form_2)
         val row_form_3: ConstraintLayout = view.findViewById(R.id.row_form_3)
-        val recycler_form: RecyclerView = view.findViewById(R.id.recycler_form)
+        val recyclerForm: RecyclerView = view.findViewById(R.id.recycler_form)
+
         val context: Context
         init {
             context = view.context
@@ -43,7 +39,6 @@ class RequestAdapter(private var ticketList: List<Request>, private val onClick:
                 }else{
                     clickUp()
                 }
-
                 currentTicket?.let {
                     onClick(it)
                 }
@@ -56,14 +51,14 @@ class RequestAdapter(private var ticketList: List<Request>, private val onClick:
             chevronDown.visibility = View.GONE
             chevronUp.visibility = View.VISIBLE
             rows_form.visibility = View.GONE
-            recycler_form.visibility = View.VISIBLE
+            recyclerForm.visibility = View.VISIBLE
 
         }
         private fun clickUp(){
             chevronDown.visibility = View.VISIBLE
             chevronUp.visibility = View.GONE
             rows_form.visibility = View.VISIBLE
-            recycler_form.visibility = View.GONE
+            recyclerForm.visibility = View.GONE
         }
 
     }
@@ -74,7 +69,9 @@ class RequestAdapter(private var ticketList: List<Request>, private val onClick:
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        if (ticketList.isEmpty()){return}
+        if (requestList.isEmpty()){return}
+        val formAdapter = FormAdapter(requestList[position].forms)
+        holder.recyclerForm.adapter = formAdapter
        /* holder.numberTicket.text = holder.context.getString(R.string.grill_, ticketList[position].number.toString())
         holder.titleText.text = ticketList[position].group?.number
         holder.prizeMoney.text = ticketList[position].reward.toString()
@@ -103,10 +100,10 @@ class RequestAdapter(private var ticketList: List<Request>, private val onClick:
     }
 
     override fun getItemCount(): Int {
-        return ticketList.size
+        return requestList.size
     }
     fun updateTickets(newTicketList: List<Request>){
-        ticketList = newTicketList
+        requestList = newTicketList
         notifyDataSetChanged()
     }
     fun updateTickets(){

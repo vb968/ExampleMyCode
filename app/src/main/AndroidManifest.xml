@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.b2b.rqst.ui.auth.LoginActivity"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"/>
     </application>
 

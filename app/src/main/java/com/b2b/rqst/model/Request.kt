@@ -12,7 +12,7 @@ data class Request(
         val form = Form(null, "label_1", "value_1")
         val forms = ArrayList<Form>()
         fun getTestRequests(): ArrayList<Request>{
-            repeat(4){
+            repeat(10){
                 forms.add(form)
             }
             val requests = ArrayList<Request>()
