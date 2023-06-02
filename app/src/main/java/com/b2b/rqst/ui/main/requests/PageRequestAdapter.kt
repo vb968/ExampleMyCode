@@ -11,69 +11,55 @@ import androidx.recyclerview.widget.RecyclerView
 import com.b2b.rqst.R
 import com.b2b.rqst.model.Request
 
-class RequestAdapter(private var requestList: List<Request>, private val onClick: (Request) -> Unit) : RecyclerView.Adapter<RequestAdapter.ViewHolder>() {
+class PageRequestAdapter(private var requestList: List<Request>, private val onClick: (Request) -> Unit) : RecyclerView.Adapter<PageRequestAdapter.ViewHolder>() {
     constructor(onClick: (Request) -> Unit) : this(emptyList(), onClick)
 
     class ViewHolder(view: View, val onClick: (Request) -> Unit) : RecyclerView.ViewHolder(view) {
         private var currentRequest: Request? = null
-        val price: TextView = view.findViewById(R.id.price)
+       /* val price: TextView = view.findViewById(R.id.price)
         val requestNumber: TextView = view.findViewById(R.id.request_number)
         val status: TextView = view.findViewById(R.id.status)
         val chevron: ConstraintLayout = view.findViewById(R.id.chevron)
         val chevronDown: ImageView = view.findViewById(R.id.chevron_down)
         val chevronUp: ImageView = view.findViewById(R.id.chevron_up)
-        val rows_form: ConstraintLayout = view.findViewById(R.id.rows_form)
-        val row_form_0: ConstraintLayout = view.findViewById(R.id.row_form_0)
-        val row_form_1: ConstraintLayout = view.findViewById(R.id.row_form_1)
-        val row_form_2: ConstraintLayout = view.findViewById(R.id.row_form_2)
-        val row_form_3: ConstraintLayout = view.findViewById(R.id.row_form_3)
-        val recyclerForm: RecyclerView = view.findViewById(R.id.recycler_form)
+        val recyclerForm: RecyclerView = view.findViewById(R.id.recycler_form)*/
 
         val context: Context
         init {
             context = view.context
-            chevron.setOnClickListener {
+           /* chevron.setOnClickListener {
                 if (chevronDown.visibility == View.VISIBLE){
                     clickDown()
                 }else{
                     clickUp()
                 }
-            }
-            requestNumber.setOnClickListener {
-                currentRequest?.let {
-                    onClick(it)
-                }
-            }
-
+            }*/
         }
         fun bind(request: Request) {
             currentRequest = request
         }
-        private fun clickDown(){
+       /* private fun clickDown(){
             chevronDown.visibility = View.GONE
             chevronUp.visibility = View.VISIBLE
-            rows_form.visibility = View.GONE
             recyclerForm.visibility = View.VISIBLE
 
         }
         private fun clickUp(){
             chevronDown.visibility = View.VISIBLE
             chevronUp.visibility = View.GONE
-            rows_form.visibility = View.VISIBLE
             recyclerForm.visibility = View.GONE
-        }
+        }*/
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.request, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.chat, parent, false)
         return ViewHolder(view, onClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (requestList.isEmpty()){return}
-        val formAdapter = FormAdapter(requestList[position].forms)
-        holder.recyclerForm.adapter = formAdapter
+
         holder.bind(requestList[position])
        /* holder.numberTicket.text = holder.context.getString(R.string.grill_, ticketList[position].number.toString())
         holder.titleText.text = ticketList[position].group?.number

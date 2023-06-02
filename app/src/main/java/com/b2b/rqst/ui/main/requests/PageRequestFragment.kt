@@ -29,8 +29,18 @@ class PageRequestFragment : Fragment() {
         _binding = FragmentPageRequestBinding.inflate(inflater, container, false)
 
         val recyclerView: RecyclerView = binding.recyclerView
-        val requestAdapter = RequestAdapter(getTestRequests()) { request -> adapterOnClick(request) }
-        recyclerView.adapter = requestAdapter
+        val testRequests = getTestRequests()
+        val pageRequestAdapter = PageRequestAdapter(testRequests) { request -> adapterOnClick(request) }
+        recyclerView.adapter = pageRequestAdapter
+        val formAdapter = FormAdapter(testRequests[0].forms)
+        binding.recyclerForm.adapter = formAdapter
+        binding.chevron.setOnClickListener {
+            if (binding.chevronDown.visibility == View.VISIBLE){
+                clickDown()
+            }else{
+                clickUp()
+            }
+        }
 
         /*val textView: TextView = binding.textDashboard
         dashboardViewModel.text.observe(viewLifecycleOwner) {
@@ -41,6 +51,20 @@ class PageRequestFragment : Fragment() {
     private fun adapterOnClick(request: Request) {
 
     }
+    private fun clickDown(){
+        binding.chevronDown.visibility = View.GONE
+        binding.chevronUp.visibility = View.VISIBLE
+        binding.recyclerForm.visibility = View.VISIBLE
+        binding.line.visibility = View.VISIBLE
+
+    }
+    private fun clickUp(){
+        binding.chevronDown.visibility = View.VISIBLE
+        binding.chevronUp.visibility = View.GONE
+        binding.recyclerForm.visibility = View.GONE
+        binding.line.visibility = View.GONE
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
