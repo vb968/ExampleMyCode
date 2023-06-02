@@ -10,13 +10,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.b2b.rqst.R
 import com.b2b.rqst.model.Request
-import java.util.*
 
 class RequestAdapter(private var requestList: List<Request>, private val onClick: (Request) -> Unit) : RecyclerView.Adapter<RequestAdapter.ViewHolder>() {
     constructor(onClick: (Request) -> Unit) : this(emptyList(), onClick)
 
     class ViewHolder(view: View, val onClick: (Request) -> Unit) : RecyclerView.ViewHolder(view) {
-        private var currentTicket: Request? = null
+        private var currentRequest: Request? = null
         val price: TextView = view.findViewById(R.id.price)
         val requestNumber: TextView = view.findViewById(R.id.request_number)
         val status: TextView = view.findViewById(R.id.status)
@@ -39,13 +38,16 @@ class RequestAdapter(private var requestList: List<Request>, private val onClick
                 }else{
                     clickUp()
                 }
-                currentTicket?.let {
+            }
+            price.setOnClickListener {
+                currentRequest?.let {
                     onClick(it)
                 }
             }
+
         }
-        fun bind(ticket: Request) {
-            currentTicket = ticket
+        fun bind(request: Request) {
+            currentRequest = request
         }
         private fun clickDown(){
             chevronDown.visibility = View.GONE
@@ -72,6 +74,7 @@ class RequestAdapter(private var requestList: List<Request>, private val onClick
         if (requestList.isEmpty()){return}
         val formAdapter = FormAdapter(requestList[position].forms)
         holder.recyclerForm.adapter = formAdapter
+        holder.bind(requestList[position])
        /* holder.numberTicket.text = holder.context.getString(R.string.grill_, ticketList[position].number.toString())
         holder.titleText.text = ticketList[position].group?.number
         holder.prizeMoney.text = ticketList[position].reward.toString()

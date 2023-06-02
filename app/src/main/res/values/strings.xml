@@ -9,6 +9,7 @@
     <string name="add_request">Add request</string>
     <string name="support">Support</string>
     <string name="profile">Profile</string>
+    <string name="page_request">Page Request</string>
 
     <string name="all">All</string>
     <string name="active">Active</string>
@@ -17,6 +18,9 @@
     <string name="issue">Issue</string>
     <string name="deleted">Deleted</string>
     <string name="tap_to_search">Tap to search</string>
+
+    <string name="type_your_message">Type your message</string>
+    <string name="yesterday">Yesterday</string>
 
 
 </resources>

@@ -9,16 +9,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.b2b.rqst.R
+import com.b2b.rqst.databinding.FragmentPageRequestBinding
 import com.b2b.rqst.databinding.FragmentRequestsBinding
 import com.b2b.rqst.model.Request
 import com.b2b.rqst.model.Request.Companion.getTestRequests
 
-class RequestsFragment : Fragment() {
+class PageRequestFragment : Fragment() {
 
-    private var _binding: FragmentRequestsBinding? = null
+    private var _binding: FragmentPageRequestBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -27,7 +26,7 @@ class RequestsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val dashboardViewModel = ViewModelProvider(this).get(RequestsViewModel::class.java)
 
-        _binding = FragmentRequestsBinding.inflate(inflater, container, false)
+        _binding = FragmentPageRequestBinding.inflate(inflater, container, false)
 
         val recyclerView: RecyclerView = binding.recyclerView
         val requestAdapter = RequestAdapter(getTestRequests()) { request -> adapterOnClick(request) }
@@ -40,7 +39,7 @@ class RequestsFragment : Fragment() {
         return binding.root
     }
     private fun adapterOnClick(request: Request) {
-        findNavController().navigate(R.id.action_navigation_requests_to_navigation_page_request)
+
     }
     override fun onDestroyView() {
         super.onDestroyView()

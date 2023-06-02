@@ -15,7 +15,13 @@
         android:id="@+id/navigation_requests"
         android:name="com.b2b.rqst.ui.main.requests.RequestsFragment"
         android:label="@string/requests"
-        tools:layout="@layout/fragment_requests" />
+        tools:layout="@layout/fragment_requests" >
+        <action
+            android:id="@+id/action_navigation_requests_to_navigation_page_request"
+            app:destination="@id/navigation_page_request"
+            app:popUpTo="@id/navigation_page_request"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_support"
@@ -27,5 +33,11 @@
         android:name="com.b2b.rqst.ui.main.addrequest.AddRequestFragment"
         android:label="@string/add_request"
         tools:layout="@layout/fragment_add_request" />
+    <fragment
+        android:id="@+id/navigation_page_request"
+        android:name="com.b2b.rqst.ui.main.requests.PageRequestFragment"
+        android:label="@string/page_request"
+        tools:layout="@layout/fragment_page_request" />
+
 
 </navigation>
