@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-   >
+    android:layout_marginBottom="10dp"
+    >
 
     <ImageView
         android:layout_width="wrap_content"
@@ -22,6 +23,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/text_option"
         android:text="Option"
+        android:textSize="13sp"
+        android:textColor="@color/icon_not_active"
         android:layout_marginStart="20dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,6 +36,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/text_value"
         android:text="Value"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:background="@drawable/bg_value"
         android:layout_marginStart="20dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
