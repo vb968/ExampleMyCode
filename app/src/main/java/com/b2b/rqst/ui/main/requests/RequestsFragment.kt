@@ -1,12 +1,9 @@
 package com.b2b.rqst.ui.main.requests
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -30,7 +27,7 @@ class RequestsFragment : Fragment() {
         _binding = FragmentRequestsBinding.inflate(inflater, container, false)
 
         val recyclerView: RecyclerView = binding.recyclerView
-        val requestAdapter = RequestAdapter(getTestRequests()) { request -> adapterOnClick(request) }
+        val requestAdapter = RequestsAdapter(getTestRequests()) { request -> adapterOnClick(request) }
         recyclerView.adapter = requestAdapter
 
         /*val textView: TextView = binding.textDashboard

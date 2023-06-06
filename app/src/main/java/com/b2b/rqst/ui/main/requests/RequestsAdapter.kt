@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.b2b.rqst.R
 import com.b2b.rqst.model.Request
 
-class RequestAdapter(private var requestList: List<Request>, private val onClick: (Request) -> Unit) : RecyclerView.Adapter<RequestAdapter.ViewHolder>() {
+class RequestsAdapter(private var requestList: List<Request>, private val onClick: (Request) -> Unit) : RecyclerView.Adapter<RequestsAdapter.ViewHolder>() {
     constructor(onClick: (Request) -> Unit) : this(emptyList(), onClick)
 
     class ViewHolder(view: View, val onClick: (Request) -> Unit) : RecyclerView.ViewHolder(view) {

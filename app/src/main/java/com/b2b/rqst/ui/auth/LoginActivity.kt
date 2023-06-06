@@ -1,5 +1,6 @@
 package com.b2b.rqst.ui.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -9,6 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.b2b.rqst.R
 import com.b2b.rqst.databinding.ActivityLoginBinding
 import com.b2b.rqst.databinding.ActivityMainBinding
+import com.b2b.rqst.ui.main.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -25,6 +27,10 @@ class LoginActivity : AppCompatActivity() {
             }else{
                 binding.checkMark.visibility = View.VISIBLE
             }
+        }
+        binding.buttonLogin.setOnClickListener{
+            val intent = (Intent(this, MainActivity()::class.java))
+            startActivity(intent)
         }
 
     }
