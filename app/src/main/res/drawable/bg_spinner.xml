@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/white" />
+                    <corners android:radius="10dp" />
+                    <stroke android:width="1dp" android:color="@color/stroke_spinner"/>
+                </shape>
+            </item>
+            <item android:drawable="@drawable/chevron_spinner" android:gravity="center_vertical|right" android:right="10dp"/>
+        </layer-list>
+    </item>
+</selector>

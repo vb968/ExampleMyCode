@@ -14,4 +14,7 @@
     <color name="gray_1">#A0A7AF</color>
     <color name="gray_2">#FBFCFD</color>
     <color name="text_chat">#5E5E5E</color>
+    <color name="text_request_number">#2F2E36</color>
+    <color name="text_request_shadow_color">#40000000</color>
+    <color name="stroke_spinner">#F3F3F3</color>
 </resources>

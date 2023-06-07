@@ -21,6 +21,14 @@
 
     <string name="type_your_message">Type your message</string>
     <string name="yesterday">Yesterday</string>
+    <string name="choose_form">Choose form</string>
+    <string name="price">Price</string>
+    <string name="option_name">Option name</string>
+    <string name="choose_file">Choose file</string>
+    <string name="delete">Delete</string>
+    <string name="send_request">Send request</string>
+    <string name="price_value">Price value</string>
+    <string name="option_value">Option value</string>
 
 
 </resources>
