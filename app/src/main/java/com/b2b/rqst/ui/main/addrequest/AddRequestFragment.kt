@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.b2b.rqst.R
 import com.b2b.rqst.databinding.FragmentAddRequestBinding
 
 class AddRequestFragment : Fragment() {
@@ -27,6 +29,9 @@ class AddRequestFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }*/
+        val listForm = listOf<String>("Form 1 name", "Form 2 name", "Form 3 name")
+        val spinnerAdapter = ArrayAdapter<String>(requireContext(), R.layout.spinner_item, listForm)
+        binding.spinnerForm.adapter = spinnerAdapter
         return root
     }
 
