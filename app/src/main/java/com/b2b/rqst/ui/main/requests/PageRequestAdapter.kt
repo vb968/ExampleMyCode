@@ -4,18 +4,16 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.b2b.rqst.R
+import com.b2b.rqst.model.Chat
 import com.b2b.rqst.model.Request
 
-class PageRequestAdapter(private var requestList: List<Request>, private val onClick: (Request) -> Unit) : RecyclerView.Adapter<PageRequestAdapter.ViewHolder>() {
-    constructor(onClick: (Request) -> Unit) : this(emptyList(), onClick)
+class PageRequestAdapter(private var chatList: List<Chat>, private val onClick: (Chat) -> Unit) : RecyclerView.Adapter<PageRequestAdapter.ViewHolder>() {
+    constructor(onClick: (Chat) -> Unit) : this(emptyList(), onClick)
 
-    class ViewHolder(view: View, val onClick: (Request) -> Unit) : RecyclerView.ViewHolder(view) {
-        private var currentRequest: Request? = null
+    class ViewHolder(view: View, val onClick: (Chat) -> Unit) : RecyclerView.ViewHolder(view) {
+        private var currentRequest: Chat? = null
        /* val price: TextView = view.findViewById(R.id.price)
         val requestNumber: TextView = view.findViewById(R.id.request_number)
         val status: TextView = view.findViewById(R.id.status)
@@ -35,7 +33,7 @@ class PageRequestAdapter(private var requestList: List<Request>, private val onC
                 }
             }*/
         }
-        fun bind(request: Request) {
+        fun bind(request: Chat) {
             currentRequest = request
         }
        /* private fun clickDown(){
@@ -58,9 +56,9 @@ class PageRequestAdapter(private var requestList: List<Request>, private val onC
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        if (requestList.isEmpty()){return}
+        if (chatList.isEmpty()){return}
 
-        holder.bind(requestList[position])
+        holder.bind(chatList[position])
        /* holder.numberTicket.text = holder.context.getString(R.string.grill_, ticketList[position].number.toString())
         holder.titleText.text = ticketList[position].group?.number
         holder.prizeMoney.text = ticketList[position].reward.toString()
@@ -89,10 +87,10 @@ class PageRequestAdapter(private var requestList: List<Request>, private val onC
     }
 
     override fun getItemCount(): Int {
-        return requestList.size
+        return chatList.size
     }
-    fun updateTickets(newTicketList: List<Request>){
-        requestList = newTicketList
+    fun updateTickets(newTicketList: List<Chat>){
+        chatList = newTicketList
         notifyDataSetChanged()
     }
     fun updateTickets(){

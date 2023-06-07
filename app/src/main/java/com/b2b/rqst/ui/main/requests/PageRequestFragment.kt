@@ -12,6 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.b2b.rqst.databinding.FragmentPageRequestBinding
 import com.b2b.rqst.databinding.FragmentRequestsBinding
+import com.b2b.rqst.model.Chat
+import com.b2b.rqst.model.Chat.Companion.getChats
 import com.b2b.rqst.model.Request
 import com.b2b.rqst.model.Request.Companion.getTestRequests
 
@@ -30,7 +32,7 @@ class PageRequestFragment : Fragment() {
 
         val recyclerView: RecyclerView = binding.recyclerView
         val testRequests = getTestRequests()
-        val pageRequestAdapter = PageRequestAdapter(testRequests) { request -> adapterOnClick(request) }
+        val pageRequestAdapter = PageRequestAdapter(getChats()) { request -> adapterOnClick(request) }
         recyclerView.adapter = pageRequestAdapter
         val formAdapter = FormAdapter(testRequests[0].forms)
         binding.recyclerForm.adapter = formAdapter
@@ -48,7 +50,7 @@ class PageRequestFragment : Fragment() {
         }*/
         return binding.root
     }
-    private fun adapterOnClick(request: Request) {
+    private fun adapterOnClick(request: Chat) {
 
     }
     private fun clickDown(){
