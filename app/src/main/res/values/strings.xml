@@ -29,6 +29,12 @@
     <string name="send_request">Send request</string>
     <string name="price_value">Price value</string>
     <string name="option_value">Option value</string>
+    <string name="clear_history">Clear history</string>
+    <string name="sign_out_from_all_devices">Sign out from all devices</string>
+
+    <string name="admin_alert">Admin alert</string>
+    <string name="hello_john">Hello, John!\nNotice me your status, please.</string>
+    <string name="got_it">Got it!</string>
 
 
 </resources>

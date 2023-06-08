@@ -25,6 +25,9 @@
         <activity android:name="com.b2b.rqst.ui.main.MainActivity"
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"/>
+        <activity android:name="com.b2b.rqst.ui.dialog.PushDialog"
+            android:theme="@style/PushDialog"
+            android:exported="false"/>
     </application>
 
 </manifest>

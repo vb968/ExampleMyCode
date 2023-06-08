@@ -1,5 +1,6 @@
 package com.b2b.rqst.ui.main.requests
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.b2b.rqst.R
 import com.b2b.rqst.databinding.FragmentRequestsBinding
 import com.b2b.rqst.model.Request
 import com.b2b.rqst.model.Request.Companion.getTestRequests
+import com.b2b.rqst.ui.dialog.PushDialog
 
 class RequestsFragment : Fragment() {
 
@@ -29,6 +31,11 @@ class RequestsFragment : Fragment() {
         val recyclerView: RecyclerView = binding.recyclerView
         val requestAdapter = RequestsAdapter(getTestRequests()) { request -> adapterOnClick(request) }
         recyclerView.adapter = requestAdapter
+
+        binding.textAll.setOnClickListener {
+            val intent = (Intent(context, PushDialog()::class.java))
+            requireContext().startActivity(intent)
+        }
 
         /*val textView: TextView = binding.textDashboard
         dashboardViewModel.text.observe(viewLifecycleOwner) {
