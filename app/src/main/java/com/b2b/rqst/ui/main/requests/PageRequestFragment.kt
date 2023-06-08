@@ -30,10 +30,9 @@ class PageRequestFragment : Fragment() {
 
         _binding = FragmentPageRequestBinding.inflate(inflater, container, false)
 
-        val recyclerView: RecyclerView = binding.recyclerView
         val testRequests = getTestRequests()
         val pageRequestAdapter = PageRequestAdapter(getChats()) { request -> adapterOnClick(request) }
-        recyclerView.adapter = pageRequestAdapter
+        binding.recyclerView.adapter = pageRequestAdapter
         val formAdapter = FormAdapter(testRequests[0].forms)
         binding.recyclerForm.adapter = formAdapter
         binding.chevron.setOnClickListener {

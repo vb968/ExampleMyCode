@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.b2b.rqst.databinding.FragmentSupportBinding
+import com.b2b.rqst.model.Chat
+import com.b2b.rqst.ui.main.requests.PageRequestAdapter
 
 class SupportFragment : Fragment() {
 
@@ -23,13 +25,18 @@ class SupportFragment : Fragment() {
         _binding = FragmentSupportBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
+        /*val textView: TextView = binding.textNotifications
         notificationsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
-        }
+        }*/
+        val pageRequestAdapter = PageRequestAdapter(Chat.getChats()) { request -> adapterOnClick(request) }
+        binding.recyclerView.adapter = pageRequestAdapter
+
         return root
     }
+    private fun adapterOnClick(request: Chat) {
 
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

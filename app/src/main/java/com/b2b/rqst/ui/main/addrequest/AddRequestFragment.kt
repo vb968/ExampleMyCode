@@ -30,8 +30,15 @@ class AddRequestFragment : Fragment() {
             textView.text = it
         }*/
         val listForm = listOf<String>("Form 1 name", "Form 2 name", "Form 3 name")
-        val spinnerAdapter = ArrayAdapter<String>(requireContext(), R.layout.spinner_item, listForm)
-        binding.spinnerForm.adapter = spinnerAdapter
+        val spinnerAdapterForm = ArrayAdapter<String>(requireContext(), R.layout.spinner_item, listForm)
+        binding.spinnerForm.adapter = spinnerAdapterForm
+
+        val listOption = listOf<String>("Option value", "Option value", "Option value")
+        val spinnerAdapterOption = ArrayAdapter<String>(requireContext(), R.layout.spinner_item, listOption)
+        binding.spinnerOptionValue.adapter = spinnerAdapterOption
+
+
+
         return root
     }
 
