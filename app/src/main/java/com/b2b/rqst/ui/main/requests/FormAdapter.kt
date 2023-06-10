@@ -44,6 +44,9 @@ class FormAdapter(private var formList: List<Form>) : RecyclerView.Adapter<FormA
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (formList.isEmpty()){return}
+        if (formList[position].icon == null){
+            holder.icon.visibility = View.GONE
+        }
        /* holder.numberTicket.text = holder.context.getString(R.string.grill_, ticketList[position].number.toString())
         holder.titleText.text = ticketList[position].group?.number
         holder.prizeMoney.text = ticketList[position].reward.toString()

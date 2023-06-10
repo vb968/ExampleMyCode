@@ -9,13 +9,15 @@ data class Request(
     val forms: ArrayList<Form>,
     ){
     companion object {
-        val form = Form(null, "label_1", "value_1")
+        val form = Form("", "label_1", "value_1")
         val forms = ArrayList<Form>()
         fun getTestRequests(): ArrayList<Request>{
             forms.clear()
-            repeat(10){
+            repeat(4){
                 forms.add(form)
             }
+            forms.add(Form(null, "label_1", "value_1"))
+            forms.add(Form(null, "label_1", "value_1"))
             val requests = ArrayList<Request>()
             requests.add(Request("$47", "№F15307", "Active", forms))
             requests.add(Request("$48", "№F15308", "Listed", forms))

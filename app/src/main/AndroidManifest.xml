@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.b2b.rqst.ui.main.MainActivity"
-            android:windowSoftInputMode="adjustPan"
+            android:windowSoftInputMode="adjustResize"
             android:screenOrientation="portrait"/>
         <activity android:name="com.b2b.rqst.ui.dialog.PushDialog"
             android:theme="@style/PushDialog"

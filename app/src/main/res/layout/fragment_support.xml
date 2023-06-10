@@ -39,7 +39,7 @@
             android:id="@+id/image_attach"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="15dp"
             android:src="@drawable/ic_attach"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
