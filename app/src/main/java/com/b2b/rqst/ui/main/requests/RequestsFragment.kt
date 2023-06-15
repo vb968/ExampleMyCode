@@ -11,10 +11,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.b2b.rqst.R
 import com.b2b.rqst.databinding.FragmentRequestsBinding
-import com.b2b.rqst.model.Request
-import com.b2b.rqst.model.Request.Companion.getTestRequests
+import com.b2b.rqst.model.RequestTest
+import com.b2b.rqst.model.RequestTest.Companion.getTestRequests
 import com.b2b.rqst.ui.dialog.PushDialog
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RequestsFragment : Fragment() {
 
     private var _binding: FragmentRequestsBinding? = null
@@ -24,7 +26,7 @@ class RequestsFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val dashboardViewModel = ViewModelProvider(this).get(RequestsViewModel::class.java)
+        val requestsViewModel = ViewModelProvider(this).get(RequestsViewModel::class.java)
 
         _binding = FragmentRequestsBinding.inflate(inflater, container, false)
 
@@ -41,9 +43,11 @@ class RequestsFragment : Fragment() {
         dashboardViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }*/
+        requestsViewModel.getForms()
+
         return binding.root
     }
-    private fun adapterOnClick(request: Request) {
+    private fun adapterOnClick(request: RequestTest) {
         findNavController().navigate(R.id.action_navigation_requests_to_navigation_page_request)
     }
     override fun onDestroyView() {

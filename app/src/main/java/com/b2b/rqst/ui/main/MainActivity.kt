@@ -9,7 +9,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.b2b.rqst.R
 import com.b2b.rqst.databinding.ActivityMainBinding
 import com.b2b.rqst.ui.auth.LoginActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

@@ -6,14 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.b2b.rqst.R
-import com.b2b.rqst.model.Chat
-import com.b2b.rqst.model.Request
+import com.b2b.rqst.model.ChatTest
 
-class PageRequestAdapter(private var chatList: List<Chat>, private val onClick: (Chat) -> Unit) : RecyclerView.Adapter<PageRequestAdapter.ViewHolder>() {
-    constructor(onClick: (Chat) -> Unit) : this(emptyList(), onClick)
+class PageRequestAdapter(private var chatList: List<ChatTest>, private val onClick: (ChatTest) -> Unit) : RecyclerView.Adapter<PageRequestAdapter.ViewHolder>() {
+    constructor(onClick: (ChatTest) -> Unit) : this(emptyList(), onClick)
 
-    class ViewHolder(view: View, val onClick: (Chat) -> Unit) : RecyclerView.ViewHolder(view) {
-        private var currentRequest: Chat? = null
+    class ViewHolder(view: View, val onClick: (ChatTest) -> Unit) : RecyclerView.ViewHolder(view) {
+        private var currentRequest: ChatTest? = null
        /* val price: TextView = view.findViewById(R.id.price)
         val requestNumber: TextView = view.findViewById(R.id.request_number)
         val status: TextView = view.findViewById(R.id.status)
@@ -33,7 +32,7 @@ class PageRequestAdapter(private var chatList: List<Chat>, private val onClick: 
                 }
             }*/
         }
-        fun bind(request: Chat) {
+        fun bind(request: ChatTest) {
             currentRequest = request
         }
        /* private fun clickDown(){
@@ -89,7 +88,7 @@ class PageRequestAdapter(private var chatList: List<Chat>, private val onClick: 
     override fun getItemCount(): Int {
         return chatList.size
     }
-    fun updateTickets(newTicketList: List<Chat>){
+    fun updateTickets(newTicketList: List<ChatTest>){
         chatList = newTicketList
         notifyDataSetChanged()
     }

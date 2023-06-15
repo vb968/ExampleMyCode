@@ -36,5 +36,10 @@
     <string name="hello_john">Hello, John!\nNotice me your status, please.</string>
     <string name="got_it">Got it!</string>
 
+    <string name="please_enter_email">Please enter E-mail</string>
+    <string name="please_enter_access_code">Please enter access code</string>
+    <string name="please_confirm_you_not_robot">Please confirm you are not a robot</string>
+    <string name="an_error_occurred_communicating_server">An error occurred communicating with the server</string>
+
 
 </resources>

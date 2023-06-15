@@ -1,21 +1,15 @@
 package com.b2b.rqst.ui.main.requests
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.RecyclerView
 import com.b2b.rqst.databinding.FragmentPageRequestBinding
-import com.b2b.rqst.databinding.FragmentRequestsBinding
-import com.b2b.rqst.model.Chat
-import com.b2b.rqst.model.Chat.Companion.getChats
-import com.b2b.rqst.model.Request
-import com.b2b.rqst.model.Request.Companion.getTestRequests
+import com.b2b.rqst.model.ChatTest
+import com.b2b.rqst.model.ChatTest.Companion.getChats
+import com.b2b.rqst.model.RequestTest.Companion.getTestRequests
 
 class PageRequestFragment : Fragment() {
 
@@ -49,7 +43,7 @@ class PageRequestFragment : Fragment() {
         }*/
         return binding.root
     }
-    private fun adapterOnClick(request: Chat) {
+    private fun adapterOnClick(request: ChatTest) {
 
     }
     private fun clickDown(){

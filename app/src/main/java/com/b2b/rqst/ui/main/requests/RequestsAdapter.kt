@@ -9,13 +9,13 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.b2b.rqst.R
-import com.b2b.rqst.model.Request
+import com.b2b.rqst.model.RequestTest
 
-class RequestsAdapter(private var requestList: List<Request>, private val onClick: (Request) -> Unit) : RecyclerView.Adapter<RequestsAdapter.ViewHolder>() {
-    constructor(onClick: (Request) -> Unit) : this(emptyList(), onClick)
+class RequestsAdapter(private var requestList: List<RequestTest>, private val onClick: (RequestTest) -> Unit) : RecyclerView.Adapter<RequestsAdapter.ViewHolder>() {
+    constructor(onClick: (RequestTest) -> Unit) : this(emptyList(), onClick)
 
-    class ViewHolder(view: View, val onClick: (Request) -> Unit) : RecyclerView.ViewHolder(view) {
-        private var currentRequest: Request? = null
+    class ViewHolder(view: View, val onClick: (RequestTest) -> Unit) : RecyclerView.ViewHolder(view) {
+        private var currentRequest: RequestTest? = null
         val price: TextView = view.findViewById(R.id.price)
         val requestNumber: TextView = view.findViewById(R.id.request_number)
         val status: TextView = view.findViewById(R.id.status)
@@ -46,7 +46,7 @@ class RequestsAdapter(private var requestList: List<Request>, private val onClic
             }
 
         }
-        fun bind(request: Request) {
+        fun bind(request: RequestTest) {
             currentRequest = request
         }
         private fun clickDown(){
@@ -105,7 +105,7 @@ class RequestsAdapter(private var requestList: List<Request>, private val onClic
     override fun getItemCount(): Int {
         return requestList.size
     }
-    fun updateTickets(newTicketList: List<Request>){
+    fun updateTickets(newTicketList: List<RequestTest>){
         requestList = newTicketList
         notifyDataSetChanged()
     }

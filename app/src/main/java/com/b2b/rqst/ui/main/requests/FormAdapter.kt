@@ -8,11 +8,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.b2b.rqst.R
-import com.b2b.rqst.model.Form
+import com.b2b.rqst.model.FormTest
 
-class FormAdapter(private var formList: List<Form>) : RecyclerView.Adapter<FormAdapter.ViewHolder>() {
+class FormAdapter(private var formList: List<FormTest>) : RecyclerView.Adapter<FormAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private var currentTicket: Form? = null
+        private var currentTicket: FormTest? = null
         val icon: ImageView = view.findViewById(R.id.image_icon)
         val label: TextView = view.findViewById(R.id.text_option)
         val value: TextView = view.findViewById(R.id.text_value)
@@ -31,7 +31,7 @@ class FormAdapter(private var formList: List<Form>) : RecyclerView.Adapter<FormA
                 }
             }*/
         }
-        fun bind(ticket: Form) {
+        fun bind(ticket: FormTest) {
             currentTicket = ticket
         }
 
@@ -77,7 +77,7 @@ class FormAdapter(private var formList: List<Form>) : RecyclerView.Adapter<FormA
     override fun getItemCount(): Int {
         return formList.size
     }
-    fun updateTickets(newTicketList: List<Form>){
+    fun updateTickets(newTicketList: List<FormTest>){
         formList = newTicketList
         notifyDataSetChanged()
     }

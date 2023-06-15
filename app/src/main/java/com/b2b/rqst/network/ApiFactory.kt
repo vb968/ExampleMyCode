@@ -36,7 +36,7 @@ object ApiFactory {
             .build()
         mBingoService = retrofit.create(ApiService::class.java)
     }
-    fun getBingoService() : ApiService {
+    fun getService() : ApiService {
         return mBingoService
     }
 
