@@ -54,7 +54,6 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/bg_spinner"
-            android:paddingStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_choose_form" />
 
@@ -112,7 +111,6 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/bg_spinner"
-            android:paddingStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_option_name_spinner" />
 
@@ -148,6 +146,54 @@
             app:layout_constraintTop_toBottomOf="@+id/text_option_name" />
 
         <TextView
+            android:id="@+id/text_option_name_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:lineSpacingExtra="2sp"
+            android:text="@string/option_name"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_option_value" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_check_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_file"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_option_name_check_box">
+
+            <CheckBox
+                android:id="@+id/check_box_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check Box 1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                 />
+
+            <CheckBox
+                android:id="@+id/check_box_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check Box 2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/check_box_1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
             android:id="@+id/text_option_name_file"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -159,7 +205,7 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_option_value" />
+            app:layout_constraintTop_toBottomOf="@+id/constraint_check_box" />
 
         <LinearLayout
             android:id="@+id/file_container"
