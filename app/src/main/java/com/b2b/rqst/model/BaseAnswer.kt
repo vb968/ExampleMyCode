@@ -1,7 +1,7 @@
 package com.b2b.rqst.model
 
-data class FormAnswer(
+data class BaseAnswer<T>(
     val success: Boolean,
-    val data: ArrayList<Data>?,
+    val data: T,
     val message: String?,
     )

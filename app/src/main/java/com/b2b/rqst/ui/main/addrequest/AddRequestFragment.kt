@@ -16,7 +16,9 @@ import com.b2b.rqst.R
 import com.b2b.rqst.databinding.FileBinding
 import com.b2b.rqst.databinding.FragmentAddRequestBinding
 import com.b2b.rqst.utils.FileUtils
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddRequestFragment : Fragment() {
     private val listUri = ArrayList<Uri>()
 
@@ -27,7 +29,7 @@ class AddRequestFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val homeViewModel = ViewModelProvider(this).get(ProfileModel::class.java)
+        val addRequestModel = ViewModelProvider(this).get(AddRequestModel::class.java)
 
         _binding = FragmentAddRequestBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -58,6 +60,8 @@ class AddRequestFragment : Fragment() {
             }
         }
 
+        addRequestModel.getRequest()
+        addRequestModel.beforeСreate()
 
         return root
     }

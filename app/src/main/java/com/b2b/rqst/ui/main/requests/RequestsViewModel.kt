@@ -7,7 +7,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.b2b.rqst.Const
-import com.b2b.rqst.model.FormAnswer
+import com.b2b.rqst.model.FormRequest
+import com.b2b.rqst.model.Status
 import com.b2b.rqst.network.ApiFactory
 import com.google.gson.GsonBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,8 +18,9 @@ import javax.inject.Inject
 @HiltViewModel
 class RequestsViewModel @Inject constructor(private val preferences: SharedPreferences, private val context: Context) : ViewModel() {
 
-    val answer = MutableLiveData<FormAnswer?>()
-    fun getForms() = MutableLiveData<Int>().apply {
+
+    val answer = MutableLiveData<FormRequest?>()
+    fun getForms(filter: Status = Status.all, search: String = "!") = MutableLiveData<Int>().apply {
         viewModelScope.launch {
             val token = preferences.getString(Const.TOKEN_SAVE, null)
             if (token == null){
@@ -26,7 +28,7 @@ class RequestsViewModel @Inject constructor(private val preferences: SharedPrefe
                 return@launch
             }
             val apiResponse = try {
-                ApiFactory.getService().form(" Bearer $token")
+                ApiFactory.getService().formRequest(" Bearer $token", filter, search)
             } catch (error: Throwable) {
                 null
             }
@@ -42,7 +44,7 @@ class RequestsViewModel @Inject constructor(private val preferences: SharedPrefe
                 }
             }else{
                 val apiError = apiResponse.errorBody()?.string()
-                answer.value = GsonBuilder().create().fromJson(apiError, FormAnswer::class.java)
+                answer.value = GsonBuilder().create().fromJson(apiError, FormRequest::class.java)
                 Toast.makeText(context, apiError, Toast.LENGTH_LONG).show()
             }
         }
