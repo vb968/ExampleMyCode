@@ -44,6 +44,7 @@ class RequestsFragment : Fragment() {
             textView.text = it
         }*/
         requestsViewModel.getForms()
+        requestsViewModel.statuses()
 
         return binding.root
     }

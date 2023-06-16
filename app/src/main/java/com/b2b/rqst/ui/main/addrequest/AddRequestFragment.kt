@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.TextView
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
@@ -50,6 +49,8 @@ class AddRequestFragment : Fragment() {
             if (uri != null) {
                 Log.d("PhotoPicker", "Selected URI: $uri")
                 addFile(uri)
+                val fileUtils = FileUtils(requireContext())
+                addRequestModel.imageUpload(uri, fileUtils.getFileName(uri), fileUtils.readBytes(uri), requireContext().contentResolver)
             } else {
                 Log.d("PhotoPicker", "No media selected")
             }
@@ -62,6 +63,7 @@ class AddRequestFragment : Fragment() {
 
         addRequestModel.getRequest()
         addRequestModel.beforeСreate()
+
 
         return root
     }
