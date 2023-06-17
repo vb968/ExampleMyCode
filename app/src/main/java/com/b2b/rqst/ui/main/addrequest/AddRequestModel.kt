@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.b2b.rqst.Const
+import com.b2b.rqst.CustomToast
 import com.b2b.rqst.model.BaseAnswer
 import com.b2b.rqst.model.Data
 import com.b2b.rqst.network.ApiFactory
@@ -50,13 +51,13 @@ class AddRequestModel @Inject constructor(private val preferences: SharedPrefere
                     answer.value = null
                 }else if (answerForm.success){
                     answer.value = answerForm
-                    Toast.makeText(context, answerForm.toString(), Toast.LENGTH_LONG).show()
+                    CustomToast.make(context, answerForm.toString())
                 }
             }else{
                 val apiError = apiResponse.errorBody()?.string()
                 val type = object : TypeToken<BaseAnswer<ArrayList<Data>?>>() {}.type
                 answer.value = GsonBuilder().create().fromJson<BaseAnswer<ArrayList<Data>?>>(apiError, type)
-                Toast.makeText(context, apiError, Toast.LENGTH_LONG).show()
+                CustomToast.make(context, apiError)
             }
         }
     }
@@ -80,12 +81,12 @@ class AddRequestModel @Inject constructor(private val preferences: SharedPrefere
                     answer.value = null
                 }else if (answerForm.success){
 //                    answer.value = answerForm
-                    Toast.makeText(context, answerForm.toString(), Toast.LENGTH_LONG).show()
+                    CustomToast.make(context, answerForm.toString())
                 }
             }else{
                 val apiError = apiResponse.errorBody()?.string()
  //               answer.value = GsonBuilder().create().fromJson(apiError, BaseAnswer::class.java)
-                Toast.makeText(context, apiError, Toast.LENGTH_LONG).show()
+                CustomToast.make(context, apiError)
             }
         }
     }
@@ -101,7 +102,7 @@ class AddRequestModel @Inject constructor(private val preferences: SharedPrefere
             val apiResponse = try {
                 ApiFactory.getService().imageUpload(" Bearer $token", body)
             } catch (error: Throwable) {
-                Toast.makeText(context, error.message, Toast.LENGTH_LONG).show()
+                CustomToast.make(context, error.message)
                 null
             }
             if (apiResponse == null){
@@ -112,12 +113,12 @@ class AddRequestModel @Inject constructor(private val preferences: SharedPrefere
                     answer.value = null
                 }else if (answerForm.success){
 //                    answer.value = answerForm
-                    Toast.makeText(context, answerForm.toString(), Toast.LENGTH_LONG).show()
+                    CustomToast.make(context, answerForm.toString())
                 }
             }else{
                 val apiError = apiResponse.errorBody()?.string()
  //               answer.value = GsonBuilder().create().fromJson(apiError, BaseAnswer::class.java)
-                Toast.makeText(context, apiError, Toast.LENGTH_LONG).show()
+                CustomToast.make(context, apiError)
             }
         }
     }

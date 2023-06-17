@@ -7,10 +7,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.b2b.rqst.Const
-import com.b2b.rqst.model.FormRequest
+import com.b2b.rqst.CustomToast
+import com.b2b.rqst.model.BaseAnswer
+import com.b2b.rqst.model.Request
 import com.b2b.rqst.model.Status
 import com.b2b.rqst.network.ApiFactory
 import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -19,7 +22,7 @@ import javax.inject.Inject
 class RequestsViewModel @Inject constructor(private val preferences: SharedPreferences, private val context: Context) : ViewModel() {
 
 
-    val answer = MutableLiveData<FormRequest?>()
+    val answer = MutableLiveData<BaseAnswer<ArrayList<Request>?>?>()
     fun getForms(filter: Status = Status.all, search: String = "!") = MutableLiveData<Int>().apply {
         viewModelScope.launch {
             val token = preferences.getString(Const.TOKEN_SAVE, null)
@@ -40,12 +43,13 @@ class RequestsViewModel @Inject constructor(private val preferences: SharedPrefe
                     answer.value = null
                 }else if (answerForm.success){
                     answer.value = answerForm
-                    Toast.makeText(context, answerForm.toString(), Toast.LENGTH_LONG).show()
+                    CustomToast.make(context, answerForm.toString())
                 }
             }else{
                 val apiError = apiResponse.errorBody()?.string()
-                answer.value = GsonBuilder().create().fromJson(apiError, FormRequest::class.java)
-                Toast.makeText(context, apiError, Toast.LENGTH_LONG).show()
+                val type = object : TypeToken<BaseAnswer<ArrayList<Request>?>>() {}.type
+                answer.value = GsonBuilder().create().fromJson(apiError, type)
+                CustomToast.make(context, apiError)
             }
         }
     }
@@ -69,12 +73,12 @@ class RequestsViewModel @Inject constructor(private val preferences: SharedPrefe
                     answer.value = null
                 }else if (answerForm.success){
 //                    answer.value = answerForm
-                    Toast.makeText(context, answerForm.toString(), Toast.LENGTH_LONG).show()
+                    CustomToast.make(context, answerForm.toString())
                 }
             }else{
                 val apiError = apiResponse.errorBody()?.string()
  //               answer.value = GsonBuilder().create().fromJson(apiError, FormRequest::class.java)
-                Toast.makeText(context, apiError, Toast.LENGTH_LONG).show()
+                CustomToast.make(context, apiError)
             }
         }
     }

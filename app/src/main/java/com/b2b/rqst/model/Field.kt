@@ -6,5 +6,6 @@ data class Field(
     val icon: String?,
     val type: String?,
     val element: Element?,
-    val value: ArrayList<String?>?,
+    val value: String?,
+    val value_array: ArrayList<String?>?,
     )
