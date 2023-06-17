@@ -12,7 +12,7 @@ import com.b2b.rqst.ui.main.requests.PageRequestAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 
-//@AndroidEntryPoint
+@AndroidEntryPoint
 class SupportFragment : Fragment() {
 
     private var _binding: FragmentSupportBinding? = null
@@ -22,7 +22,7 @@ class SupportFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val notificationsViewModel = ViewModelProvider(this).get(SupportViewModel::class.java)
+        val supportViewModel = ViewModelProvider(this).get(SupportViewModel::class.java)
 
         _binding = FragmentSupportBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -33,6 +33,8 @@ class SupportFragment : Fragment() {
         }*/
         val pageRequestAdapter = PageRequestAdapter(ChatTest.getChats()) { request -> adapterOnClick(request) }
         binding.recyclerView.adapter = pageRequestAdapter
+
+        supportViewModel.chatSupport()
 
         return root
     }
