@@ -5,13 +5,13 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.net.Uri
 import android.webkit.MimeTypeMap
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.b2b.rqst.Const
 import com.b2b.rqst.CustomToast
 import com.b2b.rqst.model.BaseAnswer
+import com.b2b.rqst.model.Create
 import com.b2b.rqst.model.Data
 import com.b2b.rqst.network.ApiFactory
 import com.google.gson.GsonBuilder
@@ -82,6 +82,7 @@ class AddRequestModel @Inject constructor(private val preferences: SharedPrefere
                 }else if (answerForm.success){
 //                    answer.value = answerForm
                     CustomToast.make(context, answerForm.toString())
+                    create(answerForm.data.uid)
                 }
             }else{
                 val apiError = apiResponse.errorBody()?.string()
@@ -90,6 +91,42 @@ class AddRequestModel @Inject constructor(private val preferences: SharedPrefere
             }
         }
     }
+    fun create(uid: String?) = MutableLiveData<Int>().apply {
+        viewModelScope.launch {
+            val token = preferences.getString(Const.TOKEN_SAVE, null)
+            if (token == null){
+                //TODO Переход на страницу авторизации
+                return@launch
+            }
+            val create = Create(HashMap(), uid!!, 11)
+            create.fields["first-name"] = "Vlad"
+            create.fields["second-name"] = "Bulgakov"
+            create.fields["sex"] = "Man"
+            create.fields["image"] = arrayOf("996d8ec9-01f9-45d6-88ae-5c71d2cc0564")
+            val apiResponse = try {
+                ApiFactory.getService().create(" Bearer $token",create)
+            } catch (error: Throwable) {
+                CustomToast.make(context, error.message)
+                null
+            }
+            if (apiResponse == null){
+                answer.value = null
+            }else if (apiResponse.code() == 200){
+                val answerForm = apiResponse.body()
+                if (answerForm == null) {
+                    answer.value = null
+                }else if (answerForm.success){
+//                    answer.value = answerForm
+                    CustomToast.make(context, answerForm.toString())
+                }
+            }else{
+                val apiError = apiResponse.errorBody()?.string()
+ //               answer.value = GsonBuilder().create().fromJson(apiError, BaseAnswer::class.java)
+                CustomToast.make(context, apiError)
+            }
+        }
+    }
+
     fun imageUpload(uri: Uri, name: String, byteArray: ByteArray?, contentResolver: ContentResolver) = MutableLiveData<Int>().apply {
         viewModelScope.launch {
             val token = preferences.getString(Const.TOKEN_SAVE, null)

@@ -9,7 +9,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.b2b.rqst.databinding.FragmentSupportBinding
 import com.b2b.rqst.model.ChatTest
 import com.b2b.rqst.ui.main.requests.PageRequestAdapter
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.lifecycle.HiltViewModel
 
+//@AndroidEntryPoint
 class SupportFragment : Fragment() {
 
     private var _binding: FragmentSupportBinding? = null

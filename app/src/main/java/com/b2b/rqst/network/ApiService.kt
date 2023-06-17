@@ -1,6 +1,8 @@
 package com.b2b.rqst.network
 
 import com.b2b.rqst.model.BaseAnswer
+import com.b2b.rqst.model.ChatSupport
+import com.b2b.rqst.model.Create
 import com.b2b.rqst.model.Data
 import com.b2b.rqst.model.FileAnswer
 import com.b2b.rqst.model.LoginAnswer
@@ -23,6 +25,9 @@ interface ApiService {
     @Headers("accept: application/json") @GET("form-request")
     suspend fun formRequest(@Header("Authorization") token: String, @Query("filter[status]") filter: Status, @Query("search") search: String): Response<BaseAnswer<ArrayList<Request>?>>
 
+    @Headers("accept: application/json") @GET("chat/support")
+    suspend fun chatSupport(@Header("Authorization") token: String): Response<BaseAnswer<ChatSupport>>
+
     @Headers("accept: application/json") @POST("auth")
     suspend fun login(@Body body: LoginBody): Response<LoginAnswer>
 
@@ -30,7 +35,7 @@ interface ApiService {
     suspend fun beforeСreate(@Header("Authorization") token: String): Response<BaseAnswer<Request.Chat>>
 
     @Headers("accept: application/json") @POST("form-request/create")
-    suspend fun create(@Header("Authorization") token: String): Response<BaseAnswer<Any>>
+    suspend fun create(@Header("Authorization") token: String, @Body body: Create): Response<BaseAnswer<Request>>
 
     @Multipart @Headers("accept: application/json") @POST("upload/image")
     suspend fun imageUpload(@Header("Authorization") token: String, @Part image: MultipartBody.Part): Response<BaseAnswer<ArrayList<FileAnswer>>>
