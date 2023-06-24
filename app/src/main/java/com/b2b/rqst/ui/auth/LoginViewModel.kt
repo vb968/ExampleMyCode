@@ -20,7 +20,10 @@ class LoginViewModel  @Inject constructor(private val preferences: SharedPrefere
 
     fun login(loginBody: LoginBody){
         viewModelScope.launch {
-            val token = preferences.getString(Const.TOKEN_SAVE, null)
+            var token = preferences.getString(Const.TOKEN_SAVE, null)
+            // For test
+            token = null
+            // For test
             if (token != null){
                 answer.value = LoginAnswer(true, LoginAnswer.Data(token), "", null)
                 return@launch

@@ -16,11 +16,11 @@
         android:name="com.b2b.rqst.ui.main.requests.RequestsFragment"
         android:label="@string/requests"
         tools:layout="@layout/fragment_requests" >
-        <action
-            android:id="@+id/action_navigation_requests_to_navigation_page_request"
-            app:destination="@id/navigation_page_request"
-            app:popUpTo="@id/navigation_page_request"
-            app:popUpToInclusive="true" />
+
+        <deepLink
+            android:id="@+id/deepLink_requests"
+            app:action="ACTION_VIEW"
+            app:uri="main://requests/page_request" />
     </fragment>
 
     <fragment
@@ -35,7 +35,7 @@
         tools:layout="@layout/fragment_add_request" />
     <fragment
         android:id="@+id/navigation_page_request"
-        android:name="com.b2b.rqst.ui.main.requests.PageRequestFragment"
+        android:name="com.b2b.rqst.ui.main.pagereq.PageRequestFragment"
         android:label="@string/page_request"
         tools:layout="@layout/fragment_page_request" />
 

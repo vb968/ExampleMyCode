@@ -1,4 +1,4 @@
-package com.b2b.rqst.ui.main.requests
+package com.b2b.rqst.ui.main.pagereq
 
 import android.content.Context
 import android.view.LayoutInflater

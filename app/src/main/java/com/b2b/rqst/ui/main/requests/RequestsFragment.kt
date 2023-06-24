@@ -1,6 +1,7 @@
 package com.b2b.rqst.ui.main.requests
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -49,7 +50,8 @@ class RequestsFragment : Fragment() {
         return binding.root
     }
     private fun adapterOnClick(request: RequestTest) {
-        findNavController().navigate(R.id.action_navigation_requests_to_navigation_page_request)
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("main://requests/page_request"))
+        startActivity(intent)
     }
     override fun onDestroyView() {
         super.onDestroyView()

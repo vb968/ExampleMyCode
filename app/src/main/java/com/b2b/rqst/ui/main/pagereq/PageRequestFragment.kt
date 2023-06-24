@@ -1,4 +1,4 @@
-package com.b2b.rqst.ui.main.requests
+package com.b2b.rqst.ui.main.pagereq
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,8 @@ import com.b2b.rqst.databinding.FragmentPageRequestBinding
 import com.b2b.rqst.model.ChatTest
 import com.b2b.rqst.model.ChatTest.Companion.getChats
 import com.b2b.rqst.model.RequestTest.Companion.getTestRequests
+import com.b2b.rqst.ui.main.requests.FormAdapter
+import com.b2b.rqst.ui.main.requests.RequestsViewModel
 
 class PageRequestFragment : Fragment() {
 
@@ -20,7 +22,7 @@ class PageRequestFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val dashboardViewModel = ViewModelProvider(this).get(RequestsViewModel::class.java)
+//        val dashboardViewModel = ViewModelProvider(this).get(RequestsViewModel::class.java)
 
         _binding = FragmentPageRequestBinding.inflate(inflater, container, false)
 

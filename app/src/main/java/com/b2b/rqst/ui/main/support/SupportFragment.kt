@@ -8,9 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.b2b.rqst.databinding.FragmentSupportBinding
 import com.b2b.rqst.model.ChatTest
-import com.b2b.rqst.ui.main.requests.PageRequestAdapter
+import com.b2b.rqst.ui.main.pagereq.PageRequestAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 @AndroidEntryPoint
 class SupportFragment : Fragment() {
