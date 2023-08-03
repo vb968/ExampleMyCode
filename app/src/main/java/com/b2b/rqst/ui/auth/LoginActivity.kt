@@ -39,9 +39,9 @@ class LoginActivity : AppCompatActivity() {
         val viewModel: LoginViewModel by viewModels()
         this.viewModel = viewModel
         binding.buttonLogin.setOnClickListener{
-            /*val intent = (Intent(this, MainActivity()::class.java))
-            startActivity(intent)*/
-            doLogin()
+            val intent = (Intent(this, MainActivity()::class.java))
+            startActivity(intent)
+//            doLogin()
         }
         viewModel.answer.observe(this) { answer ->
             binding.progress.visibility = View.GONE
